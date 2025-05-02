@@ -1,23 +1,19 @@
+import java.util.ArrayList;
+
 public class ArraySubset {
 
     static
 
-    static boolean isSubset(int[] a , int[] b){
-        int[] arr = new int[a.length];
-        boolean val = false;
+    static boolean checKEntry(ArrayList<Integer> l1 , ArrayList<Integer> l2){
+        ArrayList<Integer> entries = new ArrayList<>();
 
-        for (int i=0 ; i<b.length ; i++){
-            for (int j=0 ; j< a.length ; j++){
-                if (b[i]==a[j]){
-                    arr[i]=1;
-                    val = true;
-                }
-            }
-            if (!val){
-                arr[i] = -1;
+        for (int i=0 ; i<l2.size() ; i++){
+            for (int j=0 ; j<l1.size() ; j++){
+                if (l2.get(i) == l1.get(j)){
+                    entries.add(i , 1);
+                } else
             }
         }
-        return
     }
 
     public static void main(String[] args) {

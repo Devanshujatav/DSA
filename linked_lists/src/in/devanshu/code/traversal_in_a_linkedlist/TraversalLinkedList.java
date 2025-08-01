@@ -1,0 +1,52 @@
+package in.devanshu.code.traversal_in_a_linkedlist;
+
+public class TraversalLinkedList {
+
+    public static class Node{
+        int data; // Value of the node
+        Node next; // Address of the next node
+
+        Node(int data){
+            this.data = data;
+        }
+    }
+
+    public static void main(String[] args){
+        Node a = new Node(3);
+        Node b = new Node(6);
+        Node c = new Node(5);
+        Node d = new Node(2);
+        Node e = new Node(9);
+
+        // Connecting all the nodes
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = e;
+
+        // Traversal in the linkedlist
+        System.out.println(a.data);
+        System.out.println(a.next.data);
+        System.out.println(a.next.next.data);
+        System.out.println(a.next.next.next.data);
+        System.out.println(a.next.next.next.next.data);
+
+
+        System.out.println();
+        // OR
+
+        Node temp = a;
+        for(int i=1 ; i<=5 ; i++){
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+
+        System.out.println();
+        // OR
+
+        while(temp != null){
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+}

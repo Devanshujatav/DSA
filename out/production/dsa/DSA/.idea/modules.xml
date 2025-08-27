@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/searching_algorithms/1_linear_search/1_linear_search.iml" filepath="$PROJECT_DIR$/searching_algorithms/1_linear_search/1_linear_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/searching_algorithms/2_binary_search/2_binary_search.iml" filepath="$PROJECT_DIR$/searching_algorithms/2_binary_search/2_binary_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting-Algorithms/Sorting-Algorithms.iml" filepath="$PROJECT_DIR$/Sorting-Algorithms/Sorting-Algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/Sorting-Problems.iml" filepath="$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/Sorting-Problems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dsa.iml" filepath="$PROJECT_DIR$/dsa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/linked_lists/linked_lists.iml" filepath="$PROJECT_DIR$/linked_lists/linked_lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/move_zeroes/move_zeroes.iml" filepath="$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/move_zeroes/move_zeroes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/searching_algorithms/2_binary_search/problems/problems.iml" filepath="$PROJECT_DIR$/searching_algorithms/2_binary_search/problems/problems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/sorting_string_in_lexographical_order/sorting_string_in_lexographical_order.iml" filepath="$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/sorting_string_in_lexographical_order/sorting_string_in_lexographical_order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strings/strings.iml" filepath="$PROJECT_DIR$/strings/strings.iml" />
+    </modules>
+  </component>
+</project>

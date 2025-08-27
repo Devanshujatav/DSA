@@ -1,6 +1,7 @@
 import string
 
-class program:
+class CheckP
+rogram:
     @staticmethod
     def sortFruits(fruits):
         n = len(fruits)

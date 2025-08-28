@@ -60,22 +60,44 @@ public class RemoveDuplicates {
     // Approch 2
 //    Time Complexity: O(n)
 //    Space Complexity: O(n)
+//    private static Node removeDuplicates(Node head){
+//        // Edge Case
+//        if (head == null || head.next == null){
+//            return head;
+//        }
+//
+//        HashSet<Integer> seen = new HashSet<>();
+//        Node current = head;
+//        Node prev = null;
+//
+//        while (current!=null){
+//            if (seen.contains(current.data)){
+//                prev.next = current.next;
+//            }else {
+//                seen.add(current.data);
+//                prev = current;
+//            }
+//            current = current.next;
+//        }
+//        return head;
+//    }
+
+    // Approch 3
     private static Node removeDuplicates(Node head){
-        // Edge Case
+        // Edge Cases
         if (head == null || head.next == null){
             return head;
         }
 
-        HashSet<Integer> seen = new HashSet<>();
         Node current = head;
-        Node prev = null;
-
         while (current!=null){
-            if (seen.contains(current.data)){
-                prev.next = current.next;
-            }else {
-                seen.add(current.data);
-                prev = current;
+            Node runner = current;
+            while (runner.next != null){
+                if (runner.next.data == current.data){
+                    runner.next = runner.next.next;
+                }else {
+                    runner = runner.next;
+                }
             }
             current = current.next;
         }

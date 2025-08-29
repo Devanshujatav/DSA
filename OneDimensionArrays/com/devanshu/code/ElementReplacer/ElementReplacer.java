@@ -1,8 +1,7 @@
 package com.devanshu.code.ElementReplacer;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ElementReplacer {
@@ -52,18 +51,21 @@ public class ElementReplacer {
      * @param newValue The replacement value
      * @return New array with replacements
      */
-    public static <T> T[] replaceInNewArray(T[] original, T oldValue, T newValue) {
+    public static <T> List<T> replaceInNewArray(T[] original, T oldValue, T newValue) {
         @SuppressWarnings("unchecked")
-        T[] newArray = (T[]) new Object[original.length];
+//        T[] newArray = (T[]) new Object[original.length];
 
+        List<T> newList = new ArrayList<>();
         for (int i = 0; i < original.length; i++) {
             if (Objects.equals(original[i], oldValue)) {
-                newArray[i] = newValue;
+//                newArray[i] = newValue;
+                newList.set(i , newValue);
             } else {
-                newArray[i] = original[i];
+//                newArray[i] = original[i];
+                newList.set(i , newValue);
             }
         }
-        return newArray;
+        return newList;
     }
 
     // ====== LIST REPLACEMENT METHODS ======
@@ -93,7 +95,7 @@ public class ElementReplacer {
      * @param newValue The replacement value
      * @return New list with replacements
      */
-    public static <T> List<T> replaceWithStream(List<T> list , T oldValue , T newValue){
+    public static <T> List<T> replaceWithStreams(List<T> list , T oldValue , T newValue){
         return list.stream().map(element -> Objects.equals(element , oldValue) ? newValue : oldValue).collect(Collectors.toList());
     }
 
@@ -127,4 +129,80 @@ public class ElementReplacer {
         }
         return replacements;
     }
+
+    /**
+     * Print array contents with a label
+     */
+    public static <T> void printArray(String label, T[] array) {
+        System.out.println(label + ": " + Arrays.toString(array));
+    }
+
+
+    /**
+     * Demonstrate array replacement
+     */
+    public static void demonstrateArrayReplacement() {
+        System.out.println("=== ARRAY REPLACEMENT DEMONSTRATION ===");
+
+        // Integer array example
+        int[] numbers = {1, 2, 3, 2, 4, 2, 5};
+        System.out.println("Original array: " + Arrays.toString(numbers));
+        int replacements = replaceInArray(numbers, 2, 99);
+        System.out.println("After replacing 2 with 99: " + Arrays.toString(numbers));
+        System.out.println("Number of replacements: " + replacements);
+        System.out.println();
+
+    }
+
+    /**
+     * Demonstrate list replacement
+     **/
+
+    public static void demonstrateListReplacement() {
+        System.out.println("=== LIST REPLACEMENT DEMONSTRATION ===");
+
+        // Basic list replacement
+        List<Integer> numbers = new ArrayList<>(Arrays.asList(10, 20, 10, 30, 10));
+        System.out.println("Original list: " + numbers);
+        int replacements = replaceInList(numbers, 10, 100);
+        System.out.println("After replacing 10 with 100: " + numbers);
+        System.out.println("Number of replacements: " + replacements);
+        System.out.println();
+
+        // Using Collections.replaceAll
+        List<String> fruits = new ArrayList<>(Arrays.asList("apple", "pear", "apple", "grape", "apple"));
+        System.out.println("Original fruits: " + fruits);
+        boolean hasReplacements = replaceUsingCollections(fruits, "apple", "mango");
+        System.out.println("After using Collections.replaceAll: " + fruits);
+        System.out.println("Replacements made: " + hasReplacements);
+        System.out.println();
+
+        // Using streams (creates new list)
+        List<Integer> originalNumbers = Arrays.asList(5, 10, 5, 15, 5);
+        List<Integer> modifiedNumbers = replaceWithStreams(originalNumbers, 5, 50);
+        System.out.println("Original (unchanged): " + originalNumbers);
+        System.out.println("Stream result (new list): " + modifiedNumbers);
+        System.out.println();
+
+        // Conditional replacement
+        List<Integer> scores = new ArrayList<>(Arrays.asList(85, 92, 78, 96, 89, 74));
+        System.out.println("Original scores: " + scores);
+        int conditionalReplacements = replaceWithCondition(scores,
+                score -> score < 80,
+                80);
+        System.out.println("After replacing scores < 80 with 80: " + scores);
+        System.out.println("Conditional replacements: " + conditionalReplacements);
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+        demonstrateArrayReplacement();
+        demonstrateListReplacement();
+
+        System.out.println("Program completed successfully!");
+    }
+
+
+
 }

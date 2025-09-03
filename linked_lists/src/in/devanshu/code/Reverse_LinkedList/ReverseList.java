@@ -44,19 +44,34 @@ public class ReverseList {
     }
 
 
-    public static Node reverseList(Node head){
+    public static Node reverseListRecursively(Node head){
         // Base Case
         if (head.next == null){
             return head;
         }
 
         // Recursive Work
-        Node newHead = reverseList(head.next);
+        Node newHead = reverseListRecursively(head.next);
 
         // Self Work
         head.next.next = head;
         head.next = null;
         return newHead;
+    }
+
+    public static Node reverseList(Node head){
+        Node currPtr = head;
+        Node prevPtr = null;
+        Node nxtPtr = null;
+
+        while (currPtr != null){
+            nxtPtr = currPtr.next;
+            currPtr.next = prevPtr;
+            prevPtr = currPtr;
+            currPtr = nxtPtr;
+        }
+
+        return prevPtr;
     }
 
 

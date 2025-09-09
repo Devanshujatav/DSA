@@ -29,7 +29,7 @@ public class ArmstrongNumber {
             isResult += pn.getPower(digit , count);
 //            System.out.println(isResult);
             value/=10;
-        }                                                           \
+        }
 
         if (isResult == number){
             return true;

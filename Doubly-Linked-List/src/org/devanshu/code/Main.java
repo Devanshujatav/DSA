@@ -21,7 +21,9 @@ public class Main {
         e.next = null;
 //        dll.display
 
-        DoublyLinkedList.display(a);
-
+//        DoublyLinkedList.display(a);
+//        System.out.println();
+//        DoublyLinkedList.displayReverse(e);
+        DoublyLinkedList.display2(c);
     }
 }

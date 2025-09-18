@@ -1,5 +1,8 @@
 package org.devanshu.code;
 
+
+import static org.devanshu.code.DoublyLinkedList.*;
+
 public class Main {
     public static void main(String[] args) {
         DoublyLinkedList dll = new DoublyLinkedList();
@@ -24,6 +27,23 @@ public class Main {
 //        DoublyLinkedList.display(a);
 //        System.out.println();
 //        DoublyLinkedList.displayReverse(e);
-        DoublyLinkedList.display2(c);
+//        DoublyLinkedList.display2(c);
+
+        //FIX-1 : If you are calling a static function from another class into a class reference variable
+        // This should be the syntax
+//        DoublyLinkedList.Node newHead = insertAtHead(a, 23);
+
+//        insertAtTail(a , 89);
+        System.out.print("Origional List : ");
+        DoublyLinkedList.display(a);
+
+
+        System.out.println();
+
+
+        System.out.print("New List : ");
+        insertAt(a , 3 , 15);
+        DoublyLinkedList.display(a);
+
     }
 }

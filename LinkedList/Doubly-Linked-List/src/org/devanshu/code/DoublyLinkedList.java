@@ -3,6 +3,7 @@ package org.devanshu.code;
 
 public class DoublyLinkedList {
 
+    // Creation of a Node
     public static class Node{
         int data;
         Node next;
@@ -15,6 +16,8 @@ public class DoublyLinkedList {
         }
     }
 
+
+    // Display the doubly linked list
     public static void display(Node head){
         Node temp = head;
         while(temp != null){
@@ -24,6 +27,7 @@ public class DoublyLinkedList {
     }
 
 
+    // Display Doubly Linked List in `reverse`
     public static void displayReverse(Node tail){
         Node temp = tail;
         while (temp!=null){
@@ -33,6 +37,7 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    // Display Doubly Linked List
     public static void display2(Node random){
         Node temp = random;
         while (temp.prev!=null){
@@ -46,6 +51,8 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+
+    // Insertion at Head
     public static Node insertAtHead(Node head , int x){
         Node k = new Node(x);
         k.next = head;
@@ -54,6 +61,8 @@ public class DoublyLinkedList {
         return head;
     }
 
+
+    // Insertion at Tail
     public static void insertAtTail(Node head , int x){
         Node temp = head;
         while (temp.next!=null){
@@ -78,6 +87,8 @@ public class DoublyLinkedList {
         temp.next = newNode;
     }
 
+
+    // Insertion of any node
     public static void insertAt(Node head , int index , int x){
         Node s = head;
         for (int i=0 ; i<index-1 ; i++){
@@ -91,5 +102,41 @@ public class DoublyLinkedList {
         newNode.prev = s;
         newNode.next = r;
         r.prev = newNode;
+    }
+
+
+    // Deletion of Head Node
+    public static void deleteHead(Node head){
+        head = head.next;
+        head.prev = null;
+    }
+
+
+    // Deletion of Tail Node when head is given
+    public static void deleteTail(Node head){
+        Node temp = head;
+        while(temp.next!=null){
+            temp = temp.next;
+        }
+
+        temp = temp.prev;
+        temp.next = null;
+    }
+
+    // Deletion of Node When the Tail Node is given
+    public static void deleteTain(Node tail){
+        tail = tail.prev;
+        tail.next = null;
+    }
+
+    // Deletion of any Node
+    public static void deleteAt(Node head , int index){
+        Node temp = head;
+        for (int i=0 ; i<index ; i++){
+            temp = temp.next;
+        }
+
+        temp.next = temp.next.next;
+        temp.next.next = temp;
     }
 }

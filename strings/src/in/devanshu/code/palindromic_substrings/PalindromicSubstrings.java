@@ -1,4 +1,4 @@
-package in.devanshu.programs.palindromic_substrings;
+package in.devanshu.code.palindromic_substrings;
 
 public class PalindromicSubstrings {
 

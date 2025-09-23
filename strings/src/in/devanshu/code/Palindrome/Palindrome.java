@@ -1,4 +1,4 @@
-package in.devanshu.programs.Palindrome;
+package in.devanshu.code.Palindrome;
 
 public class Palindrome {
     private static void isPalindrome(String s){

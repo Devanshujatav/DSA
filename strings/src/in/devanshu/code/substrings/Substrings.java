@@ -1,4 +1,4 @@
-package in.devanshu.programs.substrings;
+package in.devanshu.code.substrings;
 
 public class Substrings {
 

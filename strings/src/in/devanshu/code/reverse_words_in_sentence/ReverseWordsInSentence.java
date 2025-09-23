@@ -1,4 +1,4 @@
-package in.devanshu.programs.reverse_words_in_sentence;
+package in.devanshu.code.reverse_words_in_sentence;
 
 public class ReverseWordsInSentence {
 

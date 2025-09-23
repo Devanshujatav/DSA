@@ -1,4 +1,4 @@
-package in.devanshu.programs.toogle_uppercases_lowercases;
+package in.devanshu.code.toogle_uppercases_lowercases;
 // ASCII VALUES
 // 'A' --> 65
 // 'a' --> 97

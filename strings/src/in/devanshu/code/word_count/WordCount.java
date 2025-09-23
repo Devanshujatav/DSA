@@ -1,4 +1,4 @@
-package in.devanshu.programs.word_count;
+package in.devanshu.code.word_count;
 
 public class WordCount {
 

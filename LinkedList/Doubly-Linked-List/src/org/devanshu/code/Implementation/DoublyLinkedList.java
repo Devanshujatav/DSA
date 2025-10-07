@@ -1,4 +1,4 @@
-package org.devanshu.code;
+package org.devanshu.code.Implementation;
 
 
 public class DoublyLinkedList {

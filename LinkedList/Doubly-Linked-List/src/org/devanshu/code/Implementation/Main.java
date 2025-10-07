@@ -1,7 +1,7 @@
-package org.devanshu.code;
+package org.devanshu.code.Implementation;
 
 
-import static org.devanshu.code.DoublyLinkedList.*;
+import static org.devanshu.code.Implementation.DoublyLinkedList.*;
 
 public class Main {
     public static void main(String[] args) {

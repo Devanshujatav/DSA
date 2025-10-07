@@ -129,8 +129,33 @@ public class CircularLinkedList {
     }
 
     // Search for a value
-//    public boolean search(int data){
-//
-//    }
+    public boolean search(int data){
+        // EDGE CASE
+        if(head == null){
+            return false;
+        }
+
+        Node current = head;
+
+        do {
+            if (current.data == data){
+                return true;
+            }
+
+            current = current.next;
+        }while (current!=null);
+
+        return false;
+    }
+
+    // Get Size of a Linkded List
+    public int getSize(){
+        return size;
+    }
+
+    // Check if list is empty
+    public boolean isEmpty(){
+        return head == null;
+    }
 
 }

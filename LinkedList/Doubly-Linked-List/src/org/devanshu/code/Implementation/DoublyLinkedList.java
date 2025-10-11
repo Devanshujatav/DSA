@@ -3,6 +3,8 @@ package org.devanshu.code.Implementation;
 
 public class DoublyLinkedList {
 
+    Node head;
+
     // Creation of a Node
     public static class Node{
         int data;
@@ -63,7 +65,7 @@ public class DoublyLinkedList {
 
 
     // Insertion at Tail
-    public static void insertAtTail(Node head , int x){
+    public static void append(Node head , int x){
         Node temp = head;
         while (temp.next!=null){
             temp = temp.next;

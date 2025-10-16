@@ -49,5 +49,62 @@ public class Main {
 
 
         System.out.println("Copy Stack : " + stk.copy(st2));
+
+
+        Stack<Integer> st3 = new Stack<>();
+
+        st3.push(1);
+        st3.push(2);
+        st3.push(3);
+        st3.push(4);
+        st3.push(5);
+
+        System.out.println("-------------------");
+
+
+        System.out.println("For Insert Method");
+
+        System.out.println("-------------------");
+
+        System.out.println("Origional Stack : " + st3);
+
+        System.out.println("After Insert Method : " + stk.insertAt(st3 , 2 , 12));
+
+
+        Stack<Integer> st4 = new Stack<>();
+
+        st4.push(1);
+        st4.push(2);
+        st4.push(3);
+        st4.push(4);
+        st4.push(5);
+
+
+
+
+//        System.out.println("-------------------");
+//
+//
+//        System.out.println("For Display Method");
+//
+//        System.out.println("-------------------");
+//
+//        System.out.println("Stack Before Display : " + st4);
+//
+//        System.out.print("Stack After Display : ");
+//        stk.display(st4);
+
+
+        System.out.println("-------------------");
+
+
+        System.out.println("For Display Method");
+
+        System.out.println("-------------------");
+
+        System.out.println("Stack Before Display : " + st4);
+
+        System.out.print("Stack After Display : ");
+        stk.displayThroughArray(st4);
     }
 }

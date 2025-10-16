@@ -1,6 +1,7 @@
 package org.devanshu.Implementation.BuiltInStack.Implementation;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class BuiltInStack {
     public java.util.Stack<Integer> addElements(int n){
@@ -41,5 +42,48 @@ public class BuiltInStack {
         }
 
         return cst;
+    }
+
+
+    public Stack<Integer> insertAt(Stack<Integer> st , int index , int value){
+        Stack<Integer> temp = new Stack<>();
+        while (st.size() > index){
+            temp.push(st.pop());
+        }
+        st.push(value);
+
+        while(!temp.isEmpty()){
+            st.push(temp.pop());
+        }
+
+        return st;
+    }
+
+
+    public void display(Stack<Integer> st){
+        Stack<Integer> temp = new Stack<>();
+        while (!st.isEmpty()){
+            temp.push(st.pop());
+        }
+
+        while (!temp.isEmpty()){
+            int x = temp.pop();
+            System.out.print(x + " ");
+            st.push(x);
+        }
+    }
+
+    public void displayThroughArray(Stack<Integer> st){
+        int n = st.size();
+        int[] arr = new int[n];
+
+        for (int i=n-1 ; i>=0 ; i--){
+            arr[i] = st.pop();
+        }
+
+        for (int i=0 ; i<n ; i++){
+            System.out.print(arr[i] + " ");
+            st.push(arr[i]);
+        }
     }
 }

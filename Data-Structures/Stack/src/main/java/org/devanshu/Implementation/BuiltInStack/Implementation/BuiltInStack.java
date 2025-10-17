@@ -59,6 +59,23 @@ public class BuiltInStack {
         return st;
     }
 
+    public void insertRecursively(Stack<Integer> st, int index, int value) {
+        // ✅ Base Case
+        if (st.size() == index) {
+            st.push(value);
+            return;
+        }
+
+        // ✅ Pop the top element
+        int top = st.pop();
+
+        // ✅ Recursive call
+        insertRecursively(st, index, value);
+
+        // ✅ Push back the popped element
+        st.push(top);
+    }
+
 
     public void display(Stack<Integer> st){
         Stack<Integer> temp = new Stack<>();
@@ -86,4 +103,39 @@ public class BuiltInStack {
             st.push(arr[i]);
         }
     }
+
+    public void displayReverseRecursively(Stack<Integer> st){
+        // BASE CASE
+        if (st.isEmpty()) return;
+
+        // SELF WORK
+        int topElement = st.pop();
+        System.out.print(topElement + " ");
+
+        // RECURSIVE WORK
+        displayReverseRecursively(st);
+
+        // SELF WORK
+        st.push(topElement);
+    }
+
+
+    public void displayRecursively(Stack<Integer> st){
+        // BASE CASE
+        if (st.isEmpty()){
+            return;
+        }
+
+        // SELF WORK
+        int topElement = st.pop();
+
+        // RECURSIVE WORK
+        displayRecursively(st);
+
+        // SELF WORK
+        System.out.print(topElement + " ");
+        st.push(topElement);
+    }
+
+
 }

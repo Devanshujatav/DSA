@@ -33,6 +33,40 @@ public class BuiltInStack {
         return rst;
     }
 
+    public  void pushAtBottom(Stack<Integer> st , int x){
+        // BASE CASE
+        if (st.isEmpty()){
+            st.push(x);
+            return;
+        }
+
+        // SELF WORK
+        int topElement = st.pop();
+
+        // RECURSIVE WORK
+        pushAtBottom(st , x);
+
+        // SELF WORK
+        st.push(topElement);
+    }
+
+
+    public  void reverseRecursively(Stack<Integer> st){
+        // BASE CASE
+        if (st.size() == 1){
+            return;
+        }
+
+        // SELF WORK
+        int topElement = st.pop();
+
+        // RECURSIVE WORK
+        reverseRecursively(st);
+
+        // SELF WORK
+        pushAtBottom(st , topElement);
+    }
+
 
     public java.util.Stack<Integer> copy(java.util.Stack<Integer> st){
         java.util.Stack<Integer> cst = new java.util.Stack<>();

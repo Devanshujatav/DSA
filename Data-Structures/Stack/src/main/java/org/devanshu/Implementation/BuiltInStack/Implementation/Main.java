@@ -7,29 +7,33 @@ public class Main {
 
         BuiltInStack stk = new BuiltInStack();
 
-//        Stack<Integer> st = new Stack<>();
+        Stack<Integer> st = new Stack<>();
+
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+        st.push(5);
+
 //
-//        st.push(1);
-//        st.push(2);
-//        st.push(3);
-//        st.push(4);
-//        st.push(5);
-//
-//
-//        System.out.println("----------------------");
-//
-//        System.out.println("For Reverse Method");
-//        System.out.println("----------------------");
-//
-//
-//        System.out.println("Origional Stack : " + st);
-//
-//
-//        System.out.println("Reverse Stack : " + stk.reverse(st));
-//
-//
-//
-//        System.out.println("-------------------");
+        System.out.println("----------------------");
+
+        System.out.println("For Reverse Method");
+        System.out.println("----------------------");
+
+
+        System.out.println("Origional Stack : " + st);
+
+
+        System.out.print("Reverse Stack : ");
+        stk.reverseRecursively(st);
+        stk.display(st);
+
+
+        System.out.println();
+
+
+        System.out.println("-------------------");
 //
 //
 //        System.out.println("For Copy Method");
@@ -51,27 +55,27 @@ public class Main {
 //        System.out.println("Copy Stack : " + stk.copy(st2));
 //
 //
-        Stack<Integer> st3 = new Stack<>();
+//        Stack<Integer> st3 = new Stack<>();
+//
+//        st3.push(1);
+//        st3.push(2);
+//        st3.push(3);
+//        st3.push(4);
+//        st3.push(5);
 
-        st3.push(1);
-        st3.push(2);
-        st3.push(3);
-        st3.push(4);
-        st3.push(5);
-
-        System.out.println("-------------------");
-
-
-        System.out.println("For Insert Method");
-
-        System.out.println("-------------------");
-
-        System.out.println("Origional Stack : " + st3);
-
-        System.out.print("After Insert Method : ");
-        stk.insertRecursively(st3 , 2 , 12);
-
-        stk.display(st3);
+//        System.out.println("-------------------");
+//
+//
+//        System.out.println("For Insert Method");
+//
+//        System.out.println("-------------------");
+//
+//        System.out.println("Origional Stack : " + st3);
+//
+//        System.out.print("After Insert Method : ");
+//        stk.insertRecursively(st3 , 2 , 12);
+//
+//        stk.display(st3);
 
 //        System.out.println();
 //

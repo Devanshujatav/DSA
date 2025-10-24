@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/distributed_chocolates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/find_peak_element" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/first_occurance" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/nearest_squareroot_value" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/peak_index_in_a_mountain_array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/race_track" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rotated_binary_search" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/search_2D_matrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/search_2D_matrix_II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/search_element_duplicated_rotated_binary_search" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/search_element_rotated_binary_search" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="40d09a5b-90cd-4b85-9470-751d8a43f54b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/codechef/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codechef1/Problem-Reviews-DIfficulty-Rating-643/.idea/Problem-Reviews-DIfficulty-Rating-643.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codechef/7rings/program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codechef/7rings/program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codechef/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codechef/test.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="32P5PVQm8sEZa6Bep4blKjPISe7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AlternateIntegerCharacterPattern.executor": "Run",
+    "Application.AlternateZeroOnePattern.executor": "Run",
+    "Application.ArmstrongNumber.executor": "Run",
+    "Application.Factorial.executor": "Run",
+    "Application.LeftTrianglePattern.executor": "Run",
+    "Application.NumberBetweenSymbol.executor": "Run",
+    "Application.StarDiamondPattern.executor": "Run",
+    "Application.StarTrianglePattern.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/devan/Desktop/Studies/Programming/dsa/Basic-Programs/Codechef/src/main/java/org/devanshu/Main.java"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.LargestInThree">
+    <configuration name="AlternateIntegerCharacterPattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.devanshu.code.Patterns.AlternateIntegerCharacterPattern" />
+      <module name="Basic Programs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.devanshu.code.Patterns.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AlternateZeroOnePattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.devanshu.code.Patterns.AlternateZeroOnePattern" />
+      <module name="Basic Programs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.devanshu.code.Patterns.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LargestInThree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.devanshu.code.LargestInThree" />
+      <module name="Basic Programs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.devanshu.code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StarDiamondPattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.devanshu.code.Patterns.StarDiamondPattern" />
+      <module name="Basic Programs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.devanshu.code.Patterns.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StarTrianglePattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.devanshu.code.Patterns.StarTrianglePattern" />
+      <module name="Basic Programs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.devanshu.code.Patterns.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LargestInThree" />
+        <item itemvalue="Application.StarDiamondPattern" />
+        <item itemvalue="Application.StarTrianglePattern" />
+        <item itemvalue="Application.AlternateIntegerCharacterPattern" />
+        <item itemvalue="Application.AlternateZeroOnePattern" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40d09a5b-90cd-4b85-9470-751d8a43f54b" name="Changes" comment="" />
+      <created>1757309343902</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757309343902</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Codechef/src/main/java/org/devanshu/Main.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

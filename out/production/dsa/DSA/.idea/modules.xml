@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/searching_algorithms/1_linear_search/1_linear_search.iml" filepath="$PROJECT_DIR$/searching_algorithms/1_linear_search/1_linear_search.iml" />
       <module fileurl="file://$PROJECT_DIR$/searching_algorithms/2_binary_search/2_binary_search.iml" filepath="$PROJECT_DIR$/searching_algorithms/2_binary_search/2_binary_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Doubly-Linked-List/Doubly-Linked-List.iml" filepath="$PROJECT_DIR$/Doubly-Linked-List/Doubly-Linked-List.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sorting-Algorithms/Sorting-Algorithms.iml" filepath="$PROJECT_DIR$/Sorting-Algorithms/Sorting-Algorithms.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/Sorting-Problems.iml" filepath="$PROJECT_DIR$/Sorting-Algorithms/Sorting-Problems/Sorting-Problems.iml" />
       <module fileurl="file://$PROJECT_DIR$/dsa.iml" filepath="$PROJECT_DIR$/dsa.iml" />

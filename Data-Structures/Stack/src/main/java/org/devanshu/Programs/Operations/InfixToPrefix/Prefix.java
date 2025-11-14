@@ -65,4 +65,34 @@ public class Prefix {
         String prefix = values.pop();
         return prefix;
     }
+
+    public int prefixEvaluation(String prefix){
+        Stack<Integer> values = new Stack<>();
+
+        for (int i=prefix.length() - 1 ; i>=0 ; i--){
+            char ch = prefix.charAt(i);
+
+            if (ch == ' ') continue;
+
+
+            if (Character.isDigit(ch)){
+                values.push(ch - '0');
+            }else {
+                int val1 = values.pop();
+                int val2 = values.pop();
+
+                switch (ch) {
+                    case '+': values.push(val1 + val2); break;
+                    case '-': values.push(val1 - val2); break;
+                    case '*': values.push(val1 * val2); break;
+                    case '/': values.push(val1 / val2); break;
+                    default:
+                        throw new IllegalArgumentException("Invalid operator: " + ch);
+                }
+            }
+        }
+
+        int evaluationResult = values.pop();
+        return evaluationResult;
+    }
 }

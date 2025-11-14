@@ -65,4 +65,36 @@ public class Postfix {
         String prefix = values.pop();
         return prefix;
     }
+
+    public int postfixEvaluation(String postfix){
+        Stack<Integer> values = new Stack<>();
+
+        for (int i=0 ; i<postfix.length() ; i++){
+            char ch = postfix.charAt(i);
+            int ascii = (int) ch;
+
+            // skip spaces
+            if (ch == ' ') continue;
+
+            if (ascii >= 48 && ascii <= 57){
+                values.push(ascii - 48);
+            }else {
+                int val2 = values.pop();
+                int val1 = values.pop();
+
+                switch (ch) {
+                    case '+': values.push(val1 + val2); break;
+                    case '-': values.push(val1 - val2); break;
+                    case '*': values.push(val1 * val2); break;
+                    case '/': values.push(val1 / val2); break;
+                    default:
+                        throw new IllegalArgumentException("Invalid operator: " + ch);
+                }
+            }
+        }
+
+        int evaluationResult = values.pop();
+        return evaluationResult;
+    }
+
 }

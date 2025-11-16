@@ -1,4 +1,4 @@
-package org.devanshu.Programs.Operations.InfixToPostFix;
+package org.devanshu.Programs.Operations.Postfix;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +6,8 @@ public class Main {
         String infix = "9-(5+3)*4/6";
         String postfixString = p.infixToPostfix(infix);
         int postfixEvaluation = p.postfixEvaluation(postfixString);
+        String prefix = p.postfixToPrefix(postfixString);
+        String infixString = p.postfixToInfix(postfixString);
 
         System.out.println("POSTFIX OPERATIONS");
         System.out.println("------------------------");
@@ -15,7 +17,9 @@ public class Main {
         System.out.println("------------------------");
         System.out.println("Postfix Evaluation : " + postfixEvaluation);
         System.out.println("------------------------");
-//        System.out.println("Prefix To Postfix : " + );
-//        System.out.println("------------------------");
+        System.out.println("Postfix To Prefix : " + prefix);
+        System.out.println("------------------------");
+        System.out.println("Postfix To Infix : " + infixString);
+        System.out.println("------------------------");
     }
 }

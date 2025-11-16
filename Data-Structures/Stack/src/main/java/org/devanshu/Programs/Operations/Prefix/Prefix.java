@@ -1,9 +1,9 @@
-package org.devanshu.Programs.Operations.InfixToPostFix;
+package org.devanshu.Programs.Operations.Prefix;
 
 import java.util.Stack;
 
-public class Postfix {
-    public String infixToPostfix(String infix){
+public class Prefix {
+    public String infixToPrefix(String infix){
         Stack<String> values = new Stack<>();
         Stack<Character> operators = new Stack<>();
 
@@ -21,7 +21,7 @@ public class Postfix {
                     String v1 = values.pop();
                     char o = operators.pop();
 
-                    String prefix = v1 + v2 + o;
+                    String prefix = o + v1 + v2;
 
                     values.push(prefix);
                 }
@@ -32,7 +32,7 @@ public class Postfix {
                     String v1 = values.pop();
                     char o = operators.pop();
 
-                    String prefix = v1 + v2 + o;
+                    String prefix = o + v1 + v2;
 
                     values.push(prefix);
                     operators.push(ch);
@@ -44,7 +44,7 @@ public class Postfix {
                         String v1 = values.pop();
                         char o = operators.pop();
 
-                        String prefix = v1 + v2 + o;
+                        String prefix = o + v1 + v2;
                         values.push(prefix);
                         operators.push(ch);
                     }else{
@@ -59,28 +59,27 @@ public class Postfix {
             String v1 = values.pop();
             char o = operators.pop();
 
-            String prefix = v1 + v2 + o;
+            String prefix = o + v1 + v2;
             values.push(prefix);
         }
         String prefix = values.pop();
         return prefix;
     }
 
-    public int postfixEvaluation(String postfix){
+    public int prefixEvaluation(String prefix){
         Stack<Integer> values = new Stack<>();
 
-        for (int i=0 ; i<postfix.length() ; i++){
-            char ch = postfix.charAt(i);
-            int ascii = (int) ch;
+        for (int i=prefix.length() - 1 ; i>=0 ; i--){
+            char ch = prefix.charAt(i);
 
-            // skip spaces
             if (ch == ' ') continue;
 
-            if (ascii >= 48 && ascii <= 57){
-                values.push(ascii - 48);
+
+            if (Character.isDigit(ch)){
+                values.push(ch - '0');
             }else {
-                int val2 = values.pop();
                 int val1 = values.pop();
+                int val2 = values.pop();
 
                 switch (ch) {
                     case '+': values.push(val1 + val2); break;
@@ -97,9 +96,51 @@ public class Postfix {
         return evaluationResult;
     }
 
-    public String postfixToPrefix(String postfix){
-        
+    public String prefixToPostfix(String prefix){
+        Stack<String> values = new Stack<>();
+
+        for (int i=prefix.length()-1 ; i>=0 ; i--){
+            char ch = prefix.charAt(i);
+
+            if (ch == ' ') continue;
+
+            if (Character.isDigit(ch)){
+                values.push(ch - '0' + "");
+            }else {
+                String val1 = values.pop();
+                String val2 = values.pop();
+                char op = ch;
+
+                String postfix = val1 + val2 + op;
+                values.push(postfix);
+            }
+        }
+
+        String postfix = values.pop();
+        return postfix;
     }
 
+    public String prefixToInfix(String prefix){
+        Stack<String> values = new Stack<>();
 
+        for (int i=prefix.length()-1 ; i>=0 ; i--){
+            char ch = prefix.charAt(i);
+
+            if (ch == ' ') continue;
+
+            if (Character.isDigit(ch)){
+                values.push(ch - '0' + "");
+            }else {
+                String val1 = values.pop();
+                String val2 = values.pop();
+                char op = ch;
+
+                String infix = "(" + val1 + op + val2 + ")";
+                values.push(infix);
+            }
+        }
+
+        String infix = values.pop();
+        return infix;
+    }
 }

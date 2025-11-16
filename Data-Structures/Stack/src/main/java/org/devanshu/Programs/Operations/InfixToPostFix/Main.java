@@ -7,8 +7,15 @@ public class Main {
         String postfixString = p.infixToPostfix(infix);
         int postfixEvaluation = p.postfixEvaluation(postfixString);
 
+        System.out.println("POSTFIX OPERATIONS");
+        System.out.println("------------------------");
         System.out.println("Infix : " + infix);
+        System.out.println("------------------------");
         System.out.println("Postfix : " + postfixString);
+        System.out.println("------------------------");
         System.out.println("Postfix Evaluation : " + postfixEvaluation);
+        System.out.println("------------------------");
+//        System.out.println("Prefix To Postfix : " + );
+//        System.out.println("------------------------");
     }
 }

@@ -11,7 +11,7 @@ public class Prefix {
             char ch = infix.charAt(i);
             int ascii = (int)ch;
             if (ascii>=48 && ascii<=57){
-                String s = " " + ch;
+                String s = "" + ch;
                 values.push(s);
             } else if (operators.isEmpty() || operators.peek() == '(' || ch=='(') {
                 operators.push(ch);
@@ -95,4 +95,29 @@ public class Prefix {
         int evaluationResult = values.pop();
         return evaluationResult;
     }
+
+    public String prefixToPostfix(String prefix){
+        Stack<String> values = new Stack<>();
+
+        for (int i=prefix.length()-1 ; i>=0 ; i--){
+            char ch = prefix.charAt(i);
+
+            if (ch == ' ') continue;
+
+            if (Character.isDigit(ch)){
+                values.push(ch - '0' + "");
+            }else {
+                String val1 = values.pop();
+                String val2 = values.pop();
+                char op = ch;
+
+                String postfix = val1 + val2 + op;
+                values.push(postfix);
+            }
+        }
+
+        String postfix = values.pop();
+        return postfix;
+    }
+
 }

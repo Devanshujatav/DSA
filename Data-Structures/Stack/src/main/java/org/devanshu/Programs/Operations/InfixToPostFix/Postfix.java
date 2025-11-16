@@ -11,7 +11,7 @@ public class Postfix {
             char ch = infix.charAt(i);
             int ascii = (int)ch;
             if (ascii>=48 && ascii<=57){
-                String s = " " + ch;
+                String s = "" + ch;
                 values.push(s);
             } else if (operators.isEmpty() || operators.peek() == '(' || ch=='(') {
                 operators.push(ch);
@@ -96,5 +96,10 @@ public class Postfix {
         int evaluationResult = values.pop();
         return evaluationResult;
     }
+
+    public String postfixToPrefix(String postfix){
+        
+    }
+
 
 }

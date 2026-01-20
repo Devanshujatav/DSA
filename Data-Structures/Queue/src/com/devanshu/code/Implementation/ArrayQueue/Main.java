@@ -17,7 +17,7 @@ public class Main {
 
         intQueue.enqueue(40);
         intQueue.enqueue(50);
-        System.out.println("Size: " + intQueue.size());
+        System.out.println("Size: " + intQueue.getSize());
         intQueue.display();
 
         // Example with String

@@ -1,9 +1,11 @@
 package com.devanshu.code.Implementation.LinkedListQueue;
 
-
 import java.util.NoSuchElementException;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-class Node<T> {
+class Node<T>{
     T data;
     Node<T> next;
 
@@ -13,113 +15,129 @@ class Node<T> {
     }
 }
 
-public class Queue<T> {
+class Queue<T>{
     private Node<T> front;
     private Node<T> rear;
     private int size;
+    private int capacity;
 
-    // Constructor
-    public Queue(){
+
+    // Lock for thread safety
+    private final Lock lock = new ReentrantLock();
+
+    // Conditions for blocking behavior
+    private final Condition notEmpty = lock.newCondition();
+    private final Condition notFull = lock.newCondition();
+
+    // Constructor with capacity
+    public Queue(int capacity){
+        if (capacity <= 0){
+            throw new IllegalArgumentException("Capacity must be greater than zero");
+        }
+        this.capacity = capacity;
         this.front = null;
         this.rear = null;
         this.size = 0;
     }
 
-    // Enqueue: Add element to the rear of the queue
-    public void enqueue(T data){
-        Node<T> newNode = new Node<>(data);
-        if (isEmpty()){
-            front = rear = newNode;
-        }else {
-            rear.next = newNode;
-            rear = newNode;
-        }
-        size++;
-    }
-
-    // Dequeue: Remove and return element from the front
-    public T dequeue(){
-
-        if (isEmpty()){
-            throw new NoSuchElementException("Queue is Empty");
-        }
-
-        T data = front.data;
-        front = front.next;
-
-        if (front == null){
-            rear = null;
-        }
-
-        size--;
-        return data;
-    }
-
-    public T peek(){
-        if (isEmpty()){
-            throw new NoSuchElementException("Queue is Empty");
-        }
-        return front.data;
-    }
 
     public boolean isEmpty(){
-        return front == null;
+        lock.lock();
+        try {
+            return size==0;
+        }finally {
+            lock.unlock();
+        }
+    }
+
+
+    // Enqueue (Producer)
+    public void enqueue(T data) throws InterruptedException{
+        if (data == null){
+            throw new NullPointerException("Null values are not allowed");
+        }
+
+        lock.lock();
+
+        try {
+            while (size == capacity){
+                notFull.await();
+            }
+
+            Node<T> newNode = new Node<>(data);
+
+            if (isEmpty()){
+                front = rear = newNode;
+            }else {
+                rear.next = newNode;
+                rear = newNode;
+            }
+
+            size++;
+
+            // Signal that queue is no longer empty
+            notEmpty.signal();
+        }finally {
+            lock.unlock();
+        }
+    }
+
+    // Dequeue (Consumer)
+    public T dequeue() throws InterruptedException{
+        lock.lock();
+
+        try{
+            while(isEmpty()){
+                notEmpty.await();
+            }
+
+            T data = front.data;
+            front = front.next;
+
+            size--;
+
+            // Wait one waiting producer
+            notFull.signal();
+
+            return data;
+        }finally {
+            lock.unlock();
+        }
+    }
+
+
+
+    public T peek() {
+        lock.lock();
+
+        try{
+            if (isEmpty()){
+                throw new NoSuchElementException("Queue is empty");
+            }
+
+            return front.data;
+        }finally {
+            lock.unlock();
+        }
     }
 
     public int size(){
-        return size;
+        lock.lock();
+        try{
+            return size;
+        }finally {
+            lock.unlock();
+        }
     }
 
     public void clear(){
-        rear = front = null;
-        size = 0;
-    }
-
-    public void display(){
-        if (isEmpty()){
-            System.out.println("Queue is Empty!!!!");
-            return;
+        lock.lock();
+        try{
+            front = rear = null;
+            size = 0;
+            notFull.signalAll();
+        }finally {
+            lock.unlock();
         }
-
-        Node<T> current = front;
-        System.out.print("Front -> ");
-        while (current != null){
-            System.out.print(current.data + " -> ");
-            current =current.next;
-        }
-
-        System.out.println("Rear");
-    }
-
-    public boolean contains(T data){
-        Node<T> current = front;
-
-        while (current != null){
-            if (current.data == data){
-                return true;
-            }
-            current = current.next;
-        }
-
-        return false;
-    }
-
-    @SuppressWarnings("unchecked")
-    public T[] toArray(){
-        if (isEmpty()){
-            return (T[]) new Object[0];
-        }
-
-        T[] array = (T[]) new Object[size];
-
-        Node<T> current = front;
-        int index = 0;
-
-        while (current != null){
-            array[index++] = current.data;
-            current = current.next;
-        }
-
-        return array;
     }
 }

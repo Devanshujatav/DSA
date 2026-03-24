@@ -70,6 +70,79 @@ public class CircularQueue<T> {
         } finally {
             lock.unlock();
         }
+    }
+
+    /**
+     * Blocking enqueue – waits until space is available.
+     */
+    public void enqueueBlocking(T item) throws InterruptedException{
+        if (item == null) {
+            throw new IllegalArgumentException("Null items not allowed");
+        }
+        lock.lock();
+        try {
+            while (isFull()){
+                System.out.printf("[%-12s] WAITING to enqueue %s (queue full)%n",
+                        Thread.currentThread().getName(), item);
+                notFull.await();
+            }
+            rear = (rear + 1) % capacity;
+            data[rear] = item;
+            size++;
+            System.out.printf("[%-12s] ENQUEUED  %-5s | size=%d  front=%d  rear=%d%n",
+                    Thread.currentThread().getName(), item, size, front, rear);
+            notEmpty.signalAll();
+        }finally {
+            lock.unlock();
+        }
+    }
+
+    // ── Non-blocking dequeue ─────────────────
+
+    /**
+     * Removes and returns the front element. Throws QueueUnderflowException if empty.
+     */
+    public T dequeue() throws QueueUnderflowException {
+        lock.lock();
+        try {
+            if (isEmpty()){
+                throw new QueueUnderflowException("Queue is empty. Cannot dequeue.");
+            }
+            T item = (T) data[front];
+            data[front] = null;
+            front = (front + 1) % capacity;
+            size--;
+            System.out.printf("[%-12s] DEQUEUED  %-5s | size=%d  front=%d  rear=%d%n",
+                    Thread.currentThread().getName(), item, size, front, rear);
+            notFull.signalAll();
+            return item;
+        }finally {
+            lock.unlock();
+        }
+    }
+
+    /**
+     * Blocking dequeue – waits until an element is available.
+     */
+    public T dequeueBlocking(T item) throws InterruptedException{
+        lock.lock();
+        try {
+            while (isEmpty()){
+                System.out.printf("[%-12s] WAITING to dequeue (queue empty)%n",
+                        Thread.currentThread().getName());
+                notEmpty.await();
+            }
+            T item = (T) data[front];
+            data[front] = null;
+            front = (front + 1) % capacity;
+            System.out.printf("[%-12s] DEQUEUED  %-5s | size=%d  front=%d  rear=%d%n",
+                    Thread.currentThread().getName(), item, size, front, rear);
+            size--;
+            notFull.signalAll();
+            return item;
+        }finally {
+            lock.unlock();
+        }
 
     }
 }

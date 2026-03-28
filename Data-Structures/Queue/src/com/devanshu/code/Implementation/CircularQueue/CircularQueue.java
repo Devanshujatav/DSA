@@ -143,6 +143,59 @@ public class CircularQueue<T> {
         }finally {
             lock.unlock();
         }
-
     }
+
+    // ── Peek ─────────────────────────────────
+    @SuppressWarnings("unchecked")
+    public T peek() throws QueueUnderflowException {
+        lock.lock();
+        try{
+            if (isEmpty()){
+                throw new QueueUnderflowException("Queue is empty. Cannot peek.");
+            }
+            return (T) data[front];
+        }finally {
+            lock.unlock();
+        }
+    }
+
+    // ── State queries ─────────────────────────
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public boolean isFull() {
+        return size == capacity;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public int capacity() {
+        return capacity;
+    }
+
+    @Override
+    public String toString() {
+        lock.lock();
+        try {
+            if (isEmpty()){
+                return "CircularQueue[]";
+            }
+            StringBuilder sb = new StringBuilder("CircularQueue[");
+            for (int i = 0; i < size; i++) {
+                sb.append(data[(front + i) % capacity]);
+                if (i<size-1){
+                    sb.append(", ");
+                }
+            }
+            sb.append("] (front = ").append(front).append(", rear = ").append(rear).append(", Size = ").append(size).append(")\n");
+            return sb.toString();
+        }finally {
+            lock.unlock();
+        }
+    }
+
+
 }

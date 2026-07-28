@@ -49,6 +49,32 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
     private Node<T> tail;
     private int size;
 
+    // Read-write lock: multiple concurrent readers OR one exclusive writer.
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+
+    // ------------------------------------------------------------------
+    // Insertion operations
+    // ------------------------------------------------------------------
+
+    /** Adds an element to the front of the list. O(1). */
+    public void addFirst(T value){
+        lock.writeLock().lock();
+
+        try{
+            Node<T> newNode = new Node<>(value);
+            newNode.next = head;
+            head = newNode;
+            
+            if (tail == null){
+                tail = newNode;
+            }
+
+            size++;
+        }finally{
+            lock.writeLock().unlock();
+        }
+    }
+
     
 
 

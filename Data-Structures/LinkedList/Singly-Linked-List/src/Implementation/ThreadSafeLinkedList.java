@@ -7,9 +7,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public package Implementation;
+package Implementation;
 
-public class ThreadSafeLInkedList {
+public class ThreadSafeLinkedList<T> implements Iterable<T> {
 
     // Custom Exceptions
     
@@ -34,5 +34,22 @@ public class ThreadSafeLInkedList {
         }
     }
 
+    // Node Definition
+    public static class Node<T> {
+        T data;
+        Node<T> next;
+        
+        Node(T data){
+            this.data = data;
+        }
+    }
+
+    // Fields
+    private Node<T> head;
+    private Node<T> tail;
+    private int size;
+
     
+
+
 }

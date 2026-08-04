@@ -75,7 +75,26 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
         }
     }
 
-    
+    /** Adds an element to the end of the list. O(1) (tail pointer maintained). */
+    public void addLast(T value){
+        lock.writeLock().lock();
+        try{
+            Node<T> newNode = new Node<>(value);
+            if (tail == null) {
+                head = newNode;
+                tail = newNode;                
+            }else{
+                tail.next = newNode;
+                tail = newNode;
+            }
+            size++;
+        }finally{
+            lock.writeLock().unlock();
+        }
+    }
 
-
+    /** Alias for addLast — mirrors java.util.List#add(E). */
+    public void add(T value){
+        addLast(value);
+    }
 }

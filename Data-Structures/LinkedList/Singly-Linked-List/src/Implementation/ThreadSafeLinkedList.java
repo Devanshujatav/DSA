@@ -7,7 +7,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-package Implementation;
 
 public class ThreadSafeLinkedList<T> implements Iterable<T> {
 
@@ -98,6 +97,8 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
         addLast(value);
     }
 
+
+    /** Inserts an element at a specific index. O(n). */
     public void addAt(int index , T value){
         lock.writeLock().lock();
 
@@ -107,12 +108,12 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
             }
 
             if (index == 0) {
-                addFirstInstance(value);
+                addFirstInternal(value);
                 return;
             }
 
             if (index == size) {
-                addLastInstance(value);
+                addLastInternal(value);
                 return;
             }
 
@@ -132,5 +133,29 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
         }finally{
             lock.writeLock().unlock();
         }
+    }
+
+
+    private void addFirstInternal(T value){
+        Node<T> newNode = new Node<>(value);
+        newNode.next = head;
+        head = newNode;
+        if (tail == null) {
+            tail = newNode;
+        } 
+
+        size++;
+    }
+
+    private void addLastInternal(T value){
+        Node<T> newNode = new Node<T>(value);
+        if (tail == null) {
+            head = newNode;
+            tail = newNode; 
+        }else{
+            tail.next = newNode;
+            tail = newNode;
+        }
+        size++;
     }
 }

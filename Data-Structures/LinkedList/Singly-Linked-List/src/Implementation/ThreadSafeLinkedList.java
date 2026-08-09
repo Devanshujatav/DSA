@@ -97,4 +97,40 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
     public void add(T value){
         addLast(value);
     }
+
+    public void addAt(int index , T value){
+        lock.writeLock().lock();
+
+        try{
+            if (index < 0 || index > size) {
+                throw new InvalidIndexException("Index " + index + "out of bounds for size " + size);
+            }
+
+            if (index == 0) {
+                addFirstInstance(value);
+                return;
+            }
+
+            if (index == size) {
+                addLastInstance(value);
+                return;
+            }
+
+            Node<T> prev = head;
+
+            for(int i=0 ; i<index-1 ; i++){
+                prev = prev.next;
+            }
+
+            Node<T> newNode = new Node<>(value);
+
+            newNode.next = prev.next;
+
+            prev.next = newNode;
+
+            size++;
+        }finally{
+            lock.writeLock().unlock();
+        }
+    }
 }

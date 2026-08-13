@@ -158,4 +158,91 @@ public class ThreadSafeLinkedList<T> implements Iterable<T> {
         }
         size++;
     }
+
+    public T removeFirst(){
+        lock.writeLock().lock();
+        try{
+            if (head == null) {
+                throw new EmptyListException("Cannot removeFirst() : List is Empty.");
+            }
+
+            T data = head.data;
+            head = head.next;
+            if (head == null) {
+                tail = null;
+            }
+
+            size--;
+
+            return data;
+        }finally{
+            lock.writeLock().unlock();
+        }
+    }
+
+    public T removeLast(){
+        lock.writeLock().lock();
+
+        try{
+            if (head == null) {
+                throw new EmptyListException("Cannot removeList() : list is empty.");
+            }
+
+            T data;
+
+            if (head == tail) {
+                data = head.data;
+                head = null;
+                tail = null;
+            }else{
+                Node<T> current = head;
+                while (current.next != tail) {
+                    current = current.next;
+                }
+
+                data = tail.data;
+                current.next = null;
+                tail = current;
+            }
+
+            size--;
+            return data;
+        }finally{
+            lock.writeLock().unlock();
+        }
+    }
+
+    public T removeAt(int index){
+        lock.writeLock().lock();
+        try{
+            if (index < 0 || index >= size) {
+                throw new InvalidIndexException("Index " + index + " out of bounds for size " + size); 
+            }
+
+            if (index == 0) {
+                return removeFirst();
+            }
+
+            Node<T> prev = head;
+
+            for(int i=0 ; i<index ; i++){
+                prev = prev.next;
+            }
+
+            Node<T> target = prev.next;
+
+            prev.next = target.next;
+
+            if (target == tail) {
+                tail = prev;
+            }
+
+            size--;
+
+            return target.data;
+        }finally{
+            lock.writeLock().unlock();
+        }
+    }
 }
+
